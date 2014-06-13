@@ -4,5 +4,12 @@
 </head>
 <body>
 <h2>My Notes</h2>
+<form role="form" onsubmit="complete()" action="javascript:void(0);">
+ <button type="submit" class="btn btn-default" >Save</button>
+</form>
+function complete() {
+    window.location.href="pebblejs://close";
+    return false
+}
 </body>
 </html>

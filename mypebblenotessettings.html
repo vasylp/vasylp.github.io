@@ -13,7 +13,7 @@
 </form>
 <script>
 function complete() {
-    window.location.href="pebblejs://close#" + JSON.stringify(document.getElementById('text1').value);
+    window.location.href="pebblejs://close#" + JSON.stringify({document.getElementById('text1').value});
     return false
 }
 </script>

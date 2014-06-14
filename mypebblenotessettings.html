@@ -18,14 +18,18 @@
  <label>Note 5</label>
   <input type='text' class="form-control" name="text" id="note5"><br><br>
   <button type="submit" class="btn btn-default" >Apply</button>
-  <label id="output"></label>
 </form>
+
+<div id='output'></div>
+
 <script>
+
 function complete() {
     window.location.href="pebblejs://close#" + JSON.stringify(document.getElementById('line_1_text').value);
-    document.getElementById('output').value = document.getElementById('note1').value;
+    document.getElementById('output').innerHTML = document.getElementById('note1').value;
     return false;
 }
+
 </script>
 </body>
 </html>

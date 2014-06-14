@@ -31,7 +31,7 @@ function complete() {
      j[a[i].id]=a[i].value;
     }
     var str = JSON.stringify(j);
-    document.getElementById('output').innerHTML = str + a.lenght;
+    document.getElementById('output').innerHTML = str + a.toString();
 //    window.location.href="pebblejs://close#" + JSON.stringify(document.getElementById('line_1_text').value);
     return false;
 }

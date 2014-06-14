@@ -30,7 +30,8 @@ function complete() {
     for(i = 0; i < a.lenght; i++){
      json[a[i].id]=a[i].value;
     }
-    document.getElementById('output').innerHTML = json;
+    var str = JSON.stringify(json);
+    document.getElementById('output').innerHTML = str;
 //    window.location.href="pebblejs://close#" + JSON.stringify(document.getElementById('line_1_text').value);
     return false;
 }

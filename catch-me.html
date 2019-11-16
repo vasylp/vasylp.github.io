@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Гра для охоронців</title>
+	<style>
+		#board {
+			background: url("https://getcodingkids.com/wp-content/uploads/2016/05/GameBackground.jpg");
+			background-size: cover;
+			border: 1px solid black;
+			height: 350px;
+			width: 650px;
+		}
+		.character {
+			background: url("https://getcodingkids.com/wp-content/uploads/2016/05/Guest.jpg");
+			background-size: cover;
+			width: 120px;
+			height: 120px;
+			padding: 10px;
+			margin: 10px;
+			float: left;
+			display: none;
+		}
+		.hidden {
+			display: none;
+		}
+		.visible {
+			display: block;
+		}
+		.thief {
+			background: url("https://getcodingkids.com/wp-content/uploads/2016/05/Thief.jpg");
+			background-size: cover;
+		}
+
+	</style>
+
+</head>
+<body>
+	<input type="button" value="Грати" onclick="startGame()";/><br/>
+	<b>Рахунок: <div id="score">0</div> </b>
+	<div id="board">
+		<div class="character">1</div>
+		<div class="character">2</div>
+		<div class="character">3</div>
+		<div class="character">4</div>
+		<div class="character">5</div>
+		<div class="character">6</div>
+		<div class="character">7</div>
+		<div class="character">8</div>
+	</div>
+	<script>
+		function startGame(){
+			loops = 0;
+			gameScore = 0;
+			gameLoop();
+		}
+		var loops = 0;
+		var peopleVisible = false;
+		var characterCount = 8;
+		var gameScore = 0;
+		function showScore(){
+			document.getElementById("score").innerHTML = gameScore;
+		}
+		function createCharacters(){
+			var board = document.getElementById("board");
+			var classToSet = peopleVisible ? "character visible" : "character hidden";
+			for(var index=0; index < characterCount; index++){
+				board.children[index].className = classToSet;
+				board.children[index].innerHTML = "";
+				board.children[index].onclick = function(){
+					gameScore -= 2;
+					showScore();
+				}
+			}
+			var randomNumber = Math.floor(Math.random()*characterCount) + 1;
+			board.children[randomNumber-1].innerHTML = "";
+			board.children[randomNumber-1].className = classToSet + " thief";
+			board.children[randomNumber-1].onclick = function(){
+				gameScore++;
+				showScore();
+			}
+		}
+		function gameLoop(){
+			loops++;
+			peopleVisible = !peopleVisible;
+			showScore();
+			createCharacters();
+			if(loops < 12){
+				setTimeout(gameLoop, peopleVisible ? 1000 : 3000);
+			} else {
+				alert("Твій рахунок " + gameScore);				
+			}
+		}
+	</script>
+
+</body>
+</html>

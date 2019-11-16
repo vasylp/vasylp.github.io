@@ -67,7 +67,7 @@
 			for(var index=0; index < characterCount; index++){
 				board.children[index].className = classToSet;
 				board.children[index].innerHTML = "";
-				board.children[index].onclick = function(){
+				board.children[index].onmousedown = function(){
 					gameScore -= 2;
 					showScore();
 				}
@@ -75,7 +75,7 @@
 			var randomNumber = Math.floor(Math.random()*characterCount) + 1;
 			board.children[randomNumber-1].innerHTML = "";
 			board.children[randomNumber-1].className = classToSet + " thief";
-			board.children[randomNumber-1].onclick = function(){
+			board.children[randomNumber-1].onmousedown = function(){
 				gameScore++;
 				showScore();
 			}
